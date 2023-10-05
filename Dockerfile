@@ -2,10 +2,8 @@
 FROM alpine:3.10
 RUN wget -q https://github.com/jacoco/jacoco/releases/download/v0.8.10/jacoco-0.8.10.zip \
  && unzip jacoco-0.8.10.zip
-# mavenはある？
-#RUN wget -q https://github.com/apache/maven/archive/refs/tags/maven-3.9.4.zip \
-# && unzip maven-3.9.4.zip
-RUN apk add --no-cache mvn
+RUN wget -q https://github.com/apache/maven/archive/refs/tags/maven-3.9.4.zip \
+ && unzip maven-3.9.4.zip
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
