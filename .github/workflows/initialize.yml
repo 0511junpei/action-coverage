@@ -1,0 +1,14 @@
+on: 
+  workflow_dispatch:
+
+jobs:
+  chmodjob:
+    runs-on: ubuntu-latest
+    name: change mode
+    steps:
+      - name: Hello world action step
+        id: hello
+        run: |
+          git add entrypoint.sh
+          git update-index --chmod=+x entrypoint.sh
+          git ls-files --stage entrypoint.sh
