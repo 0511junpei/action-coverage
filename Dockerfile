@@ -4,7 +4,9 @@ FROM alpine:3.10
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-#RUN ["chmod", "+x", "entrypoint.sh"]
+# permission denied問題の解決に必須
+# https://stackoverflow.com/questions/54336677/error-starting-container-process-caused-exec-docker-entrypoint-sh-permi
+RUN ["chmod", "+x", "entrypoint.sh"]
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
