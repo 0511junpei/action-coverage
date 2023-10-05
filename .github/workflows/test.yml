@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: 0511junpei/action-coverage
+        uses: 0511junpei/action-coverage@main
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
