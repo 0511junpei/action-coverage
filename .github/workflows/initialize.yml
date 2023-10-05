@@ -6,8 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     name: change mode
     steps:
-      - name: Hello world action step
-        id: hello
+      - name: check out
+        uses: actions/checkout@v3
+      - name: initialize
         run: |
           git add entrypoint.sh
           git update-index --chmod=+x entrypoint.sh
