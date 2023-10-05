@@ -1,9 +1,15 @@
 # Container image that runs your code
 FROM alpine:3.10
-RUN wget -q https://github.com/jacoco/jacoco/releases/download/v0.8.10/jacoco-0.8.10.zip \
- && unzip jacoco-0.8.10.zip
+
 RUN wget -q https://github.com/apache/maven/archive/refs/tags/maven-3.9.4.zip \
  && unzip maven-3.9.4.zip
+
+RUN wget -q https://github.com/jacoco/jacoco/releases/download/v0.8.10/jacoco-0.8.10.zip \
+ && unzip jacoco-0.8.10.zip
+
+RUN ls -la
+
+RUN mvn --version
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
